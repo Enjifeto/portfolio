@@ -269,7 +269,7 @@ int main() {
             <!-- mailto: opens the user's email app -->
             <p>Email: <a href="mailto:enjifeta.abdella@example.com">enjifeta.abdella@example.com</a></p>
             <!-- tel: lets mobile users tap to call -->
-            <p>Phone: <a href="tel:+251927601877">+251 927 601 877</a></p>
+            <p>Phone: <a href="tel:+251927601872">+251 927 601 872</a></p>
             <!-- Links to external profiles -->
             <p>GitHub: <a href="https://github.com/Enjifeto">github.com/Enjifeto</a></p>
             <p>LinkedIn: <a href="https://www.linkedin.com/in/enjifeta-abdella">linkedin.com/in/enjifeta-abdella</a></p>
@@ -292,31 +292,42 @@ int main() {
             </map>
 
 
-            <!-- CONTACT FORM: sends the entered data to thank-you.html using the GET method -->
+            <!-- CONTACT FORM: sends the entered data to thank-you.html using the POST method (data goes in the request body, not the URL) -->
             <h3>Send me a message</h3>
-            <form action="thank-you.html" method="get">
+            <form action="thank-you.html" method="post" enctype="multipart/form-data">
                 <!-- GROUP 1: fieldset groups related form fields; legend is its title -->
                 <fieldset>
                     <legend>Your Details</legend>
-
+                    <!-- Brief info explaining why these details are requested -->
                     <p>Please enter your full name and email address so I can reply to your message.</p>
                     <!-- label's "for" matches the input's id so clicking the label focuses the input -->
                     <label for="fullname">Full name:</label>
-                    <input type="text" id="fullname" name="fullname">
+                    <input type="text" id="fullname" name="fullname" required>
                     <br><br>
                     <label for="email">Email:</label>
                     <!-- type="email" makes the browser check for a valid email format -->
-                    <input type="email" id="email" name="email">
-
-
+                    <input type="email" id="email" name="email" required>
+                    <br><br>
+                    <!-- Submit button: sends the form to thank-you.html -->
+                    <button type="submit">Submit</button>
                 </fieldset>
 
-                <!-- GROUP 2: dropdown for the reason and a text area for the message -->
+                <fieldset>
+                    <legend>Project Details</legend>
+                    <label for="phone">Phone (optional):</label>
+
+                    <input type="text" id="phone" name="phone" pattern="0[79][0-9]{8}"
+                        title="10 digits starting with 09 or 07">
+                    <br><br>
+                    <p>Preferred contact method:</p>
+                </fieldset>
+
+                <!-- GROUP 3: dropdown for the reason and a text area for the message -->
                 <fieldset>
                     <legend>Your Message</legend>
                     <label for="reason">Reason for contacting me:</label>
                     <!-- select = dropdown list; optgroup groups related options under a heading -->
-                    <select id="reason" name="reason">
+                    <select id="reason" name="reason" required>
                         <optgroup label="Work">
                             <option value="internship">Internship offer</option>
                             <option value="freelance">Freelance project</option>
@@ -331,7 +342,11 @@ int main() {
                     <br><br>
                     <label for="message">Message:</label><br>
                     <!-- textarea = multi-line text box (6 rows, 40 columns) -->
-                    <textarea id="message" name="message" rows="6" cols="40"></textarea>
+                    <textarea id="message" name="message" rows="6" cols="40" required></textarea>
+                    <br>
+                    <!-- checkbox: tick on/off; several can be ticked -->
+                    <input type="checkbox" id="copy" name="copy" value="yes">
+                    <label for="copy">Send me a copy of this message</label>
                 </fieldset>
 
                 <!-- BUTTONS: submit sends the form; reset clears every field -->
