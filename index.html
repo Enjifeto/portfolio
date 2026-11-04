@@ -312,7 +312,7 @@ int main() {
                     <button type="submit">Submit</button>
                 </fieldset>
 
-                <fieldset>
+                <!-- <fieldset>
                     <legend>Project Details</legend>
                     <label for="phone">Phone (optional):</label>
 
@@ -325,6 +325,61 @@ int main() {
                     <input type="radio" id="by-phone" name="contact-method" value="phone">
                     <label for="by-phone">Phone</label>
                     <br><br>
+                    <label for="meeting">Preferred meeting date:</label>
+
+                    <input type="date" id="meeting" name="meeting" min="2026-11-01">
+                    <br><br>
+                    <label for="weeks">Project length (weeks):</label>
+
+                    <input type="number" id="weeks" name="weeks" min="1" max="52" step="1">
+                    <br><br>
+                    <label for="meeting">Preferred meeting date:</label>
+
+                    <input type="date" id="meeting" name="meeting" min="2026-11-01">
+                    <br><br>
+                    <label for="weeks">Project length (weeks):</label>
+
+                    <input type="number" id="weeks" name="weeks" min="1" max="52" step="1">
+                    <br><br>
+                </fieldset> -->
+                <!-- GROUP 2: project details using the other input types -->
+                <fieldset>
+                    <legend>Project Details</legend>
+                    <label for="phone">Phone (optional):</label>
+                    <!-- pattern = format rule: 09 or 07 followed by 8 digits (10 digits total) -->
+                    <input type="text" id="phone" name="phone" pattern="0[79][0-9]{8}"
+                        title="10 digits starting with 09 or 07">
+                    <br><br>
+                    <p>Preferred contact method:</p>
+                    <!-- radio buttons with the same name: only one can be picked -->
+                    <input type="radio" id="by-email" name="contact-method" value="email" checked>
+                    <label for="by-email">Email</label>
+                    <input type="radio" id="by-phone" name="contact-method" value="phone">
+                    <label for="by-phone">Phone</label>
+                    <br><br>
+                    <label for="meeting">Preferred meeting date:</label>
+                    <!-- date picker; min blocks dates before 1 November 2026 -->
+                    <input type="date" id="meeting" name="meeting" min="2026-11-01">
+                    <br><br>
+                    <label for="weeks">Project length (weeks):</label>
+                    <!-- number field limited to 1-52 in steps of 1 -->
+                    <input type="number" id="weeks" name="weeks" min="1" max="52" step="1">
+                    <br><br>
+                    <label for="budget">Your budget (ETB):</label>
+                    <!-- number field: at least 1000, in steps of 500 (so 1200 is rejected) -->
+                    <input type="number" id="budget" name="budget" min="1000" step="500">
+                    <br><br>
+                    <label for="brief">Attach a project brief:</label>
+                    <!-- file picker; only the file name is sent unless the form uses multipart/form-data -->
+                    <input type="file" id="brief" name="brief">
+                    <br><br>
+                    <label for="colour">Preferred website colour:</label>
+                    <!-- colour picker with a default colour -->
+                    <input type="color" id="colour" name="colour" value="#1f5fa8">
+                    <br><br>
+                    <label for="rating">How much do you like my portfolio? (1–10)</label>
+                    <!-- slider from 1 to 10, starting at 7 -->
+                    <input type="range" id="rating" name="rating" min="1" max="10" value="7">
                 </fieldset>
 
                 <!-- GROUP 3: dropdown for the reason and a text area for the message -->
