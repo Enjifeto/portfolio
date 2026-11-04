@@ -127,6 +127,7 @@
                 <label for="lvl-js">JavaScript</label>
                 <meter id="lvl-js" value="0.2" min="0" max="1" low="0.3" high="0.7" optimum="1">20%</meter>
             </p>
+            <canvas id="skillsChart" width="300" height="150">Bar chart of my skill levels</canvas>
 
             <h3>My Learning Roadmap</h3>
             <!-- Ordered (numbered) list showing the steps of my learning plan -->
@@ -469,6 +470,24 @@ int main() {
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillText("EA", 60, 62);
+    </script>
+    <script>
+        const chart = document.getElementById('skillsChart');
+        const chartCtx = chart.getContext('2d');
+
+        // Bars: x, y, width, height. y = 130 - height so each bar stands on the bottom edge
+        chartCtx.fillStyle = "#1f5fa8";
+        chartCtx.fillRect(30, 130 - 96, 50, 96);   // HTML 80% of 120 = 96
+        chartCtx.fillRect(125, 130 - 84, 50, 84);  // Python 70% of 120 = 84
+        chartCtx.fillRect(220, 130 - 24, 50, 24);  // JavaScript 20% of 120 = 24
+
+        // Skill names under the bars
+        chartCtx.fillStyle = "black";
+        chartCtx.font = "14px Arial";
+        chartCtx.textAlign = "center";
+        chartCtx.fillText("HTML", 55, 145);
+        chartCtx.fillText("Python", 150, 145);
+        chartCtx.fillText("JavaScript", 245, 145);
     </script>
 
 </body>
