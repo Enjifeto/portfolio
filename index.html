@@ -194,6 +194,15 @@ int main() {
                 Your browser does not support the audio element.
             </audio>
 
+            <h3>Project Demo</h3>
+            <!-- poster = image shown before the video plays -->
+            <video controls width="600" poster="media/project-demo-poster.jpg" preload="metadata">
+                <source src="media/project-demo.mp4" type="video/mp4">
+                <!-- track = captions file (WebVTT); default turns the captions on automatically -->
+                <track kind="captions" src="media/project-demo.vtt" srclang="en" label="English" default>
+                Your browser does not support the video element.
+            </video>
+
 
         </section>
 
